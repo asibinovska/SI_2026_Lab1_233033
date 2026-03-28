@@ -68,6 +68,7 @@ class Library {
                 if (!book.isBorrowed()) {
                     book.setBorrowed(true);
                     System.out.println("Borrowed successfully");
+
                 } else {
                     System.out.println("Book is already borrowed.");
                 }
