@@ -1,0 +1,26 @@
+Дел 1: Софтверски развој со користење на Git систем за контрола на верзии
+
+1. git checkout -b feature-search-books
+2. open -e SI2026Lab1Main.java
+3. git commit -a -m "Implement genre report"
+4. git push -u origin master
+5. git checkout master
+6. git merge feature-search-books
+
+git merge feature-search-books
+Updating 0fdb84c..54a07f3
+Fast-forward
+ SI2026Lab1Main.java | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+Овде се случи спојување кон master гранката со Fast-forward спојување.
+
+При спојување на гранката master во гранката feature-borrow-book настана конфликт во датотеката SI2026Lab1Main.java.
+Конфликтот настана затоа што истата линија од кодот беше изменета во двете гранки. Во гранката feature-borrow-book пораката за успешно позајмување беше сменета во "Borrowed successfully", а во гранката master истата порака беше сменета во "Book checked out". Конфликтот беше решен рачно со уредување на датотеката SI2026Lab1Main.java. Беа отстранети conflict marker-ите, а како конечна верзија беше задржана пораката "Borrowed successfully". По рачното решавање на конфликтот, датотеката беше додадена со git add SI2026Lab1Main.java и merge процесот беше завршен со commit.
+
+При ова спојување беше употребена recursive (three-way) merge стратегија, затоа што и двете гранки имаа свои посебни измени по заедничкиот предок, па Git не можеше да направи fast-forward merge.
+
+- При локалното спојување на гранката feature-genre-report во master беше употребено recursive merge.
+
+- Спојувањето на гранката feature-borrow-book во master беше recursive (three-way merge).
+
+Ова спојување не беше fast-forward затоа што и master и feature-borrow-book имаа свои независни commit-и по разгранувањето, па Git мораше да ги комбинира промените.
